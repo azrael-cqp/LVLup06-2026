@@ -179,6 +179,13 @@ const PPL = {
       muscle: "Triceps",
       rest: 75,
       desc: "Hold dumbbell or rope overhead. Lower behind head by bending elbows, then extend back up. Feel the stretch at bottom."
+    }, {
+      name: "Cable Crunches",
+      sets: "3×15",
+      muscle: "Core",
+      rest: 60,
+      finisher: true,
+      desc: "🎯 CORE FINISHER (5 min). Ingenuncheat la cablu, franghia langa cap. Ruleaza coloana in jos contractand abdomenul, nu tragi cu bratele. Core-ul e grupa ta cea mai slaba — finisher scurt aici de cateva ori/saptamana."
     }]
   },
   2: {
@@ -228,6 +235,13 @@ const PPL = {
       muscle: "Biceps",
       rest: 75,
       desc: "Hold dumbbells with neutral grip (palms facing in). Curl up, squeeze. Works brachialis and forearms too."
+    }, {
+      name: "Hanging Leg Raises",
+      sets: "3×12",
+      muscle: "Core",
+      rest: 60,
+      finisher: true,
+      desc: "🎯 CORE FINISHER (5-6 min). Atarnat de bara, ridica picioarele controlat pana la 90° (sau genunchii la piept daca e greu). Fara balans. Lucreaza abdomenul inferior — exact zona ta problematica."
     }]
   },
   3: {
@@ -271,6 +285,13 @@ const PPL = {
       muscle: "Calves",
       rest: 60,
       desc: "⭐ PRIORITY (Calves 20 XP - weak). 5 sets! Stand on edge of step, heels hanging off. Rise up on toes as high as possible, hold 1 sec, lower below step level for full stretch."
+    }, {
+      name: "Weighted Plank",
+      sets: "3×45s",
+      muscle: "Core",
+      rest: 60,
+      finisher: true,
+      desc: "🎯 CORE FINISHER (5 min). Plank pe antebrate, disc pe spate daca poti. Corp drept, fund jos, abdomen contractat. 45s pe set. Intareste core-ul stabilizator dupa picioare."
     }]
   },
   4: {
@@ -308,6 +329,13 @@ const PPL = {
       muscle: "Triceps",
       rest: 90,
       desc: "Lie on bench, hold bar/dumbbells above face. Bend only at elbows, lowering weight towards forehead. Extend back up. Keep elbows still."
+    }, {
+      name: "Ab Wheel / Plank",
+      sets: "3×10",
+      muscle: "Core",
+      rest: 60,
+      finisher: true,
+      desc: "🎯 CORE FINISHER (5 min). Ab wheel din genunchi: roteste inainte controlat, abdomen contractat sa nu se arcuiasca spatele, trage inapoi. Daca nu ai roata: plank 3×45s."
     }]
   },
   5: {
@@ -351,6 +379,13 @@ const PPL = {
       muscle: "Biceps",
       rest: 75,
       desc: "Sit, elbow braced against inner thigh. Curl dumbbell with full focus on the squeeze. Best isolation exercise for bicep peak."
+    }, {
+      name: "Russian Twists",
+      sets: "3×20",
+      muscle: "Core",
+      rest: 60,
+      finisher: true,
+      desc: "🎯 CORE FINISHER (5-6 min). Asezat, picioarele ridicate, disc/gantera in maini. Roteste trunchiul stanga-dreapta controlat, atinge podeaua langa sold. Lucreaza flancurile (obliquii) — zona ta android."
     }]
   },
   6: {
@@ -674,12 +709,12 @@ const LIFE_Q_FIXED = [{
   icon: "🎧",
   desc: "See today's recommendation below"
 }, {
-  id: "meditate",
-  label: "Meditate 15 min",
-  stat: "PER",
+  id: "yoga",
+  label: "Yoga (15 min)",
+  stat: "AGI",
   xp: 20,
-  icon: "🧠",
-  desc: "Mindfulness & focus"
+  icon: "🧘",
+  desc: "Flexibility, mobility & breath"
 }, {
   id: "mobility",
   label: "Mobility Work (10 min)",
@@ -1481,9 +1516,275 @@ const BOSS_LIBRARY = [{
     badge: "Phoenix Risen"
   },
   lore: "Sometimes the strongest move is to step back. Rise renewed."
+}, {
+  id: "core_leviathan",
+  name: "The Abyssal Leviathan",
+  emoji: "🐙",
+  theme: "Depths of the Core",
+  description: "Zdrobeste flancurile si abdomenul inferior — zona ta cea mai slaba.",
+  target: {
+    type: "muscleXp",
+    muscle: "core",
+    amount: 80
+  },
+  durationDays: 28,
+  reward: {
+    xp: 280,
+    badge: "Leviathan Slayer"
+  },
+  bossQuests: [{
+    id: "bq_hanging_raise",
+    label: "Hanging Leg Raises (3x12)",
+    stat: "VIT",
+    muscle: "core",
+    xp: 15,
+    icon: "🔥"
+  }, {
+    id: "bq_cable_crunch",
+    label: "Cable Crunches (3x15)",
+    stat: "VIT",
+    muscle: "core",
+    xp: 15,
+    icon: "⚓"
+  }, {
+    id: "bq_side_plank",
+    label: "Side Plank (2x45s / parte)",
+    stat: "VIT",
+    muscle: "core",
+    xp: 12,
+    icon: "🌊"
+  }],
+  lore: "Din adancuri se ridica leviatanul. Doar un core de otel il poate infrunta."
+}, {
+  id: "agi_serpent",
+  name: "The Coiled Serpent",
+  emoji: "🐍",
+  theme: "Path of the Serpent",
+  description: "Creste AGI la 30 prin yoga + mobilitate zilnica.",
+  target: {
+    type: "muscleXp",
+    muscle: "cardio",
+    amount: 0,
+    statTarget: "AGI",
+    statAmount: 30
+  },
+  durationDays: 30,
+  reward: {
+    xp: 240,
+    badge: "Serpent's Grace"
+  },
+  bossQuests: [{
+    id: "bq_yoga_flow",
+    label: "Yoga Flow (15 min)",
+    stat: "AGI",
+    xp: 15,
+    icon: "🧘"
+  }, {
+    id: "bq_deep_squat",
+    label: "Deep Squat Hold (3x60s)",
+    stat: "AGI",
+    xp: 12,
+    icon: "🐍"
+  }, {
+    id: "bq_thoracic",
+    label: "Thoracic + Hip Openers (8 min)",
+    stat: "AGI",
+    xp: 10,
+    icon: "🌀"
+  }],
+  lore: "Rigid nu supravietuieste. Sarpele se indoaie, deci nu se rupe niciodata."
+}, {
+  id: "calf_golem",
+  name: "The Stone Golem",
+  emoji: "🗿",
+  theme: "Forging the Foundation",
+  description: "Ridica gambele (calves) — piloni neglijati — la 75 XP.",
+  target: {
+    type: "muscleXp",
+    muscle: "calves",
+    amount: 75
+  },
+  durationDays: 28,
+  reward: {
+    xp: 220,
+    badge: "Golem Breaker"
+  },
+  bossQuests: [{
+    id: "bq_standing_calf",
+    label: "Standing Calf Raises (4x15 slow)",
+    stat: "STR",
+    muscle: "calves",
+    xp: 12,
+    icon: "🗿"
+  }, {
+    id: "bq_seated_calf",
+    label: "Seated Calf Raises (3x20)",
+    stat: "STR",
+    muscle: "calves",
+    xp: 12,
+    icon: "⛰️"
+  }],
+  lore: "O statuie e la fel de puternica precum baza ei. Toarna piatra in gambe."
+}, {
+  id: "hams_reaper",
+  name: "The Silent Reaper",
+  emoji: "🌾",
+  theme: "Harvest of the Chain",
+  description: "Intareste lantul posterior: RDL progresie constanta.",
+  target: {
+    type: "lift",
+    exercise: "Romanian Deadlift",
+    kg: 90,
+    reps: 8
+  },
+  durationDays: 28,
+  reward: {
+    xp: 260,
+    badge: "Reaper's Chain"
+  },
+  bossQuests: [{
+    id: "bq_rdl_focus",
+    label: "RDL — tempo lent, control excentric",
+    stat: "STR",
+    muscle: "hamstrings",
+    xp: 15,
+    icon: "🌾"
+  }, {
+    id: "bq_leg_curl",
+    label: "Leg Curls burnout (2x15)",
+    stat: "STR",
+    muscle: "hamstrings",
+    xp: 12,
+    icon: "🔗"
+  }],
+  lore: "Lantul posterior e cositorul tacut al fortei reale. Nu-l ignora."
 }];
 
 // ─── MOBILITY DATA (with images & YouTube links) ───
+// ─── WARM-UP & COOL-DOWN (hand-drawn SVG figures + text, per day type) ───
+// Simple stick-figure SVGs drawn inline. Each returns a React SVG element.
+function StretchFig(pose, color) {
+  const c = color || "#93c5fd";
+  const S = (children) => /*#__PURE__*/React.createElement("svg", {
+    viewBox: "0 0 60 60",
+    width: 54,
+    height: 54,
+    style: { flexShrink: 0 }
+  }, children);
+  const ln = (x1, y1, x2, y2, w) => /*#__PURE__*/React.createElement("line", {
+    x1, y1, x2, y2,
+    stroke: c,
+    strokeWidth: w || 2.4,
+    strokeLinecap: "round"
+  });
+  const head = (cx, cy) => /*#__PURE__*/React.createElement("circle", {
+    cx, cy, r: 5,
+    fill: "none",
+    stroke: c,
+    strokeWidth: 2.4
+  });
+  switch (pose) {
+    case "armcircle":
+      // arms out doing circles
+      return S([head(30, 12), ln(30, 17, 30, 38), ln(30, 22, 12, 16), ln(30, 22, 48, 16), ln(30, 38, 23, 52), ln(30, 38, 37, 52),
+        /*#__PURE__*/React.createElement("path", { key: "a", d: "M10 10 A6 6 0 0 1 16 6", fill: "none", stroke: c, strokeWidth: 1.5 })]);
+    case "legswing":
+      return S([head(30, 12), ln(30, 17, 30, 40), ln(30, 24, 18, 30), ln(30, 24, 42, 30), ln(30, 40, 24, 54), ln(30, 40, 44, 44),
+        /*#__PURE__*/React.createElement("path", { key: "s", d: "M44 44 q6 4 4 10", fill: "none", stroke: c, strokeWidth: 1.3, strokeDasharray: "2 2" })]);
+    case "bandpull":
+      // arms pulling apart
+      return S([head(30, 12), ln(30, 17, 30, 40), ln(30, 23, 14, 23), ln(30, 23, 46, 23), ln(14, 23, 10, 20), ln(46, 23, 50, 20), ln(30, 40, 24, 54), ln(30, 40, 36, 54)]);
+    case "cat":
+      // cat-cow on all fours
+      return S([/*#__PURE__*/React.createElement("path", { key: "b", d: "M12 40 Q30 26 48 40", fill: "none", stroke: c, strokeWidth: 2.4, strokeLinecap: "round" }), head(50, 40), ln(14, 40, 14, 54), ln(24, 38, 24, 54), ln(38, 38, 38, 54), ln(46, 40, 46, 54)]);
+    case "hip":
+      // deep squat / hip opener
+      return S([head(30, 12), ln(30, 17, 30, 30), ln(30, 22, 20, 28), ln(30, 22, 40, 28), ln(30, 30, 18, 40), ln(18, 40, 22, 54), ln(30, 30, 42, 40), ln(42, 40, 38, 54)]);
+    case "chest":
+      // chest/doorway stretch, arm on wall
+      return S([head(26, 12), ln(26, 17, 26, 40), ln(26, 22, 44, 16), ln(44, 16, 48, 22), ln(26, 40, 20, 54), ln(26, 40, 32, 54), ln(48, 10, 48, 50, 2)]);
+    case "cross":
+      // cross-body shoulder stretch
+      return S([head(30, 12), ln(30, 17, 30, 40), ln(30, 23, 46, 30), ln(30, 23, 40, 20), ln(46, 30, 40, 20), ln(30, 40, 24, 54), ln(30, 40, 36, 54)]);
+    case "hamstring":
+      // forward fold hamstring
+      return S([/*#__PURE__*/React.createElement("path", { key: "h", d: "M22 12 Q26 28 22 40", fill: "none", stroke: c, strokeWidth: 2.4, strokeLinecap: "round" }), head(24, 10), ln(22, 40, 22, 54), ln(22, 28, 30, 48), ln(22, 28, 14, 48)]);
+    case "quad":
+      // standing quad stretch
+      return S([head(28, 12), ln(28, 17, 28, 40), ln(28, 24, 40, 20), ln(28, 40, 22, 54), ln(28, 40, 40, 46), ln(40, 46, 40, 32), ln(40, 32, 28, 30)]);
+    case "calf":
+      // calf stretch against wall
+      return S([head(20, 12), ln(20, 17, 26, 36), ln(20, 24, 30, 22), ln(26, 36, 18, 52), ln(26, 36, 40, 50), ln(48, 8, 48, 52, 2), ln(30, 22, 46, 18)]);
+    case "child":
+      // child's pose
+      return S([/*#__PURE__*/React.createElement("path", { key: "cp", d: "M10 46 Q26 44 34 40 L46 30", fill: "none", stroke: c, strokeWidth: 2.4, strokeLinecap: "round" }), head(48, 28), ln(10, 46, 10, 40), ln(20, 46, 34, 44)]);
+    case "twist":
+      // seated spinal twist
+      return S([head(30, 12), ln(30, 17, 30, 36), ln(30, 24, 40, 30), ln(30, 24, 22, 20), ln(30, 36, 18, 40), ln(30, 36, 44, 40), ln(18, 40, 26, 52), ln(44, 40, 40, 52)]);
+    case "cobra":
+      // cobra / back extension
+      return S([/*#__PURE__*/React.createElement("path", { key: "co", d: "M10 50 Q28 50 40 34", fill: "none", stroke: c, strokeWidth: 2.4, strokeLinecap: "round" }), head(44, 28), ln(10, 50, 20, 50), ln(30, 46, 30, 50)]);
+    default:
+      return S([head(30, 12), ln(30, 17, 30, 38), ln(30, 22, 18, 30), ln(30, 22, 42, 30), ln(30, 38, 24, 54), ln(30, 38, 36, 54)]);
+  }
+}
+const WARMUP_DATA = {
+  PUSH: {
+    warmup: [
+      { pose: "armcircle", name: "Arm Circles", time: "30s x 2", text: "Brate intinse lateral, cercuri mari inainte apoi inapoi. Incalzeste umerii inainte de presari." },
+      { pose: "bandpull", name: "Band Pull-Aparts", time: "2x15", text: "Banda elastica in fata, trage-o apart pana la piept, strange omoplatii. Activeaza umerii posteriori." },
+      { pose: "chest", name: "Doorway Chest Opener", time: "30s x 2", text: "Antebratul pe tocul usii, pas inainte, deschide pieptul. Pregateste pectoralii." }
+    ],
+    cooldown: [
+      { pose: "chest", name: "Chest Stretch", time: "30s / parte", text: "Bratul pe perete, roteste corpul in directia opusa. Intinde pectoralul." },
+      { pose: "cross", name: "Cross-Body Shoulder", time: "30s / parte", text: "Trage bratul peste piept cu celalalt brat. Intinde deltoidul posterior." },
+      { pose: "child", name: "Child's Pose", time: "45s", text: "Sezi pe calcaie, bratele intinse in fata, fruntea la sol. Relaxeaza umerii si spatele." }
+    ]
+  },
+  PULL: {
+    warmup: [
+      { pose: "armcircle", name: "Arm Circles", time: "30s x 2", text: "Cercuri mari cu bratele. Incalzeste centura scapulara." },
+      { pose: "bandpull", name: "Band Pull-Aparts", time: "2x15", text: "Activeaza spatele superior si deltoizii posteriori inainte de tras." },
+      { pose: "cat", name: "Cat-Cow", time: "8 reps", text: "In patru labe, alterneaza arcuire si rotunjire a coloanei. Mobilizeaza spatele." }
+    ],
+    cooldown: [
+      { pose: "cross", name: "Cross-Body Shoulder", time: "30s / parte", text: "Intinde deltoidul posterior si trapezul." },
+      { pose: "child", name: "Child's Pose (extended)", time: "45s", text: "Bratele intinse mult in fata, simte intinderea in lats (dorsali)." },
+      { pose: "twist", name: "Seated Twist", time: "30s / parte", text: "Sezand, roteste trunchiul, cotul opus pe genunchi. Decompreseaza coloana." }
+    ]
+  },
+  LEGS: {
+    warmup: [
+      { pose: "legswing", name: "Leg Swings", time: "12 / picior", text: "Sprijin cu o mana, balanseaza piciorul inainte-inapoi apoi lateral. Incalzeste soldurile." },
+      { pose: "hip", name: "Deep Squat Hold", time: "3x30s", text: "Coboara in genoflexiune completa, coatele impinge genunchii afara. Deschide soldurile." },
+      { pose: "cat", name: "Cat-Cow", time: "8 reps", text: "Mobilizeaza coloana si bazinul inainte de squat/RDL." }
+    ],
+    cooldown: [
+      { pose: "hamstring", name: "Standing Forward Fold", time: "45s", text: "Picioarele drepte, apleaca-te si atinge varfurile. Intinde ischiogambierii." },
+      { pose: "quad", name: "Standing Quad Stretch", time: "30s / parte", text: "Prinde glezna la fund, genunchii lipiti. Intinde cvadricepsul." },
+      { pose: "calf", name: "Calf Stretch (wall)", time: "30s / parte", text: "Mainile pe perete, un picior in spate drept, calcaiul jos. Intinde gamba." }
+    ]
+  },
+  CORE: {
+    warmup: [
+      { pose: "cat", name: "Cat-Cow", time: "8 reps", text: "Mobilizeaza coloana inainte de core." },
+      { pose: "twist", name: "Torso Rotations", time: "10 / parte", text: "Roteste trunchiul controlat. Activeaza obliquii." }
+    ],
+    cooldown: [
+      { pose: "cobra", name: "Cobra Stretch", time: "30s", text: "Culcat pe burta, impinge in maini, deschide abdomenul. Contra-intinde dupa crunches." },
+      { pose: "child", name: "Child's Pose", time: "45s", text: "Relaxeaza spatele lombar." }
+    ]
+  }
+};
+// Map a day type to a warmup key
+function warmupKeyFor(type) {
+  if (!type) return null;
+  if (type.indexOf("PUSH") >= 0) return "PUSH";
+  if (type.indexOf("PULL") >= 0) return "PULL";
+  if (type.indexOf("LEG") >= 0) return "LEGS";
+  if (type.indexOf("CORE") >= 0 || type.indexOf("HIIT") >= 0 || type.indexOf("CARDIO") >= 0) return "CORE";
+  return null;
+}
 const MOBILITY_DATA = {
   morning: {
     title: "Morning Activation",
@@ -2060,7 +2361,7 @@ function Notif({
   return /*#__PURE__*/React.createElement("div", {
     style: {
       position: "fixed",
-      top: 20,
+      bottom: "calc(90px + env(safe-area-inset-bottom))",
       left: "50%",
       transform: "translateX(-50%)",
       zIndex: 9999,
@@ -2389,6 +2690,15 @@ function App() {
   // UI-only state (not saved)
   const [notif, setNotif] = useState(null);
   const [showLvl, setShowLvl] = useState(false);
+  // Blocking reminder modal: null | "sleep" | "weight"
+  const [reminderModal, setReminderModal] = useState(null);
+  const [rmSleepH, setRmSleepH] = useState("");
+  const [rmSleepR, setRmSleepR] = useState(0);
+  const [rmWeight, setRmWeight] = useState("");
+  const [rmFat, setRmFat] = useState("");
+  const [rmMuscle, setRmMuscle] = useState("");
+  const [showWarmup, setShowWarmup] = useState(false);
+  const [showCooldown, setShowCooldown] = useState(false);
   const [tab, setTab] = useState("quests");
   const [cEx, setCEx] = useState("");
   const [cS, setCS] = useState("");
@@ -2471,14 +2781,15 @@ function App() {
   // Load saved data from IndexedDB on mount, then run resets
   useEffect(() => {
     (async () => {
-      const d = await loadFromIDB();
-      if (d) {
-        const merged = {
-          ...DEFAULT_STATE
-        };
-        for (const k of SAVE_FIELDS) if (d[k] !== undefined) merged[k] = d[k];
-        g.current = merged;
-      }
+      try {
+        const d = await loadFromIDB();
+        if (d) {
+          const merged = {
+            ...DEFAULT_STATE
+          };
+          for (const k of SAVE_FIELDS) if (d[k] !== undefined) merged[k] = d[k];
+          g.current = merged;
+        }
 
       // ─── AUTO DAILY RESET + PENALTY (runs after load) ───
       const S = g.current;
@@ -2516,7 +2827,7 @@ function App() {
           const yDow = new Date(Date.now() - 86400000).getDay();
           const yPPL = PPL[yDow];
           if (yPPL && yPPL.type !== "REST") {
-            const missedEx = yPPL.exercises.filter(ex => !S.doneEx.includes(ex.name));
+            const missedEx = yPPL.exercises.filter(ex => !ex.finisher && !S.doneEx.includes(ex.name));
             if (missedEx.length > 0) {
               const p = missedEx.length * 10;
               totalPenalty += p;
@@ -2584,34 +2895,43 @@ function App() {
         g.current.lastWeeklyReset = wkId;
         await saveToIDB(g.current);
       }
-      setLoaded(true);
-      forceUpdate();
+      } catch (err) {
+        console.error("Load error:", err);
+      } finally {
+        setLoaded(true);
+        forceUpdate();
+      }
     })();
   }, []);
 
-  // ─── REMINDERS (sleep daily on open · weight+BF on Thursdays) ───
+  // ─── REMINDERS (blocking modal · sleep daily on open · weight+BF on Thursdays) ───
   useEffect(() => {
     if (!loaded) return;
+    if (reminderModal) return;
     const today = new Date().toISOString().slice(0, 10);
     const sl = g.current.sleepLog || [];
     const yKey = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
-    const sleptYesterdayLogged = sl.some(s => s.date === yKey || s.date === today);
-    // Sleep reminder once per app-open per day
-    if (g.current._lastSleepReminder !== today && !sleptYesterdayLogged) {
+    const sleptLogged = sl.some(s => s.date === yKey || s.date === today);
+    // Sleep reminder once per day, if not logged
+    if (g.current._lastSleepReminder !== today && !sleptLogged) {
       g.current._lastSleepReminder = today;
-      setTimeout(() => setNotif("😴 Logheaza somnul din noaptea trecuta (tab BODY)"), 1200);
+      setTimeout(() => setReminderModal("sleep"), 800);
+      return;
     } else if (g.current._lastSleepReminder !== today) {
       g.current._lastSleepReminder = today;
     }
     // Thursday weight+BF reminder (getDay 4 = Thursday)
     if (new Date().getDay() === 4) {
-      const wl = (g.current.weightLog || []).filter(w => w.date === today);
+      const wl = (g.current.weightLog || []).filter(w => {
+        const d = new Date().toLocaleDateString();
+        return w.date === d;
+      });
       if (g.current._lastWeightReminder !== today && wl.length === 0) {
         g.current._lastWeightReminder = today;
-        setTimeout(() => setNotif("⚖️ E joi — introdu greutatea + BF actual (tab BODY)"), 2600);
+        setTimeout(() => setReminderModal("weight"), 800);
       }
     }
-  }, [loaded]);
+  }, [loaded, reminderModal]);
   const rank = getRank(level);
   const xpN = getXp(level);
   const tPPL = PPL[new Date().getDay()];
@@ -3140,7 +3460,11 @@ function App() {
   const latestW = weightLog[weightLog.length - 1];
   const goalW = 105;
   const startW = 115;
-  const progress = Math.max(0, Math.min(100, (startW - latestW.weight) / (startW - goalW) * 100));
+  // Phase 2: after hitting 105kg, target flips to BF <=20%
+  const phase2 = latestW.weight <= goalW;
+  const bfGoal = 20;
+  const latestBf = typeof latestW.fat === "number" ? latestW.fat : null;
+  const progress = phase2 ? (latestBf !== null ? Math.max(0, Math.min(100, (30 - latestBf) / (30 - bfGoal) * 100)) : 0) : Math.max(0, Math.min(100, (startW - latestW.weight) / (startW - goalW) * 100));
   const IS = {
     width: "100%",
     padding: "10px 12px",
@@ -3303,7 +3627,216 @@ function App() {
   }), notif && /*#__PURE__*/React.createElement(Notif, {
     msg: notif,
     onDone: () => setNotif(null)
-  }), questPopup && /*#__PURE__*/React.createElement(QuestPopup, {
+  }), reminderModal && /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "fixed",
+      inset: 0,
+      zIndex: 10001,
+      background: "rgba(2,6,23,0.88)",
+      backdropFilter: "blur(4px)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: 20
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: "100%",
+      maxWidth: 360,
+      background: "linear-gradient(160deg,rgba(15,23,42,0.99),rgba(30,41,59,0.99))",
+      border: `1px solid ${reminderModal === "sleep" ? "rgba(99,102,241,0.5)" : "rgba(34,197,94,0.5)"}`,
+      borderRadius: 14,
+      padding: "20px 18px",
+      boxShadow: "0 0 40px rgba(0,0,0,0.6)",
+      fontFamily: "'Courier New',monospace"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 26,
+      textAlign: "center",
+      marginBottom: 6
+    }
+  }, reminderModal === "sleep" ? "\uD83D\uDE34" : "\u2696\uFE0F"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 13,
+      color: reminderModal === "sleep" ? "#a5b4fc" : "#4ade80",
+      textAlign: "center",
+      letterSpacing: 1,
+      marginBottom: 4,
+      fontWeight: 700
+    }
+  }, reminderModal === "sleep" ? "SOMN — NOAPTEA TRECUTA" : "JOI — GREUTATE + BF"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 9,
+      color: "#64748b",
+      textAlign: "center",
+      marginBottom: 14,
+      lineHeight: 1.5
+    }
+  }, reminderModal === "sleep" ? "Somnul e factorul #1 pentru retentia musculara. Logheaza sau amana." : "Masuratoare saptamanala. Introdu datele de pe cantar."),
+  // ── SLEEP FIELDS ──
+  reminderModal === "sleep" && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    inputMode: "decimal",
+    autoComplete: "off",
+    autoCorrect: "off",
+    value: rmSleepH,
+    placeholder: "Ore de somn (ex: 7.5)",
+    onChange: e => setRmSleepH(e.target.value.replace(/,/g, ".").replace(/[^0-9.]/g, "")),
+    style: {
+      width: "100%",
+      padding: "10px",
+      background: "rgba(0,0,0,.35)",
+      border: "1px solid rgba(99,102,241,.35)",
+      borderRadius: 6,
+      color: "#e2e8f0",
+      fontSize: 13,
+      fontFamily: "inherit",
+      outline: "none",
+      boxSizing: "border-box",
+      marginBottom: 10,
+      textAlign: "center"
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 9,
+      color: "#64748b",
+      textAlign: "center",
+      marginBottom: 4
+    }
+  }, "Calitate somn"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 6,
+      justifyContent: "center",
+      marginBottom: 16
+    }
+  }, [1, 2, 3, 4, 5].map(r => /*#__PURE__*/React.createElement("button", {
+    key: r,
+    onClick: () => setRmSleepR(r),
+    style: {
+      width: 34,
+      height: 34,
+      padding: 0,
+      background: r <= rmSleepR ? "rgba(99,102,241,.3)" : "rgba(0,0,0,.3)",
+      border: `1px solid ${r <= rmSleepR ? "#a5b4fc" : "rgba(255,255,255,.1)"}`,
+      borderRadius: 6,
+      color: r <= rmSleepR ? "#fbbf24" : "#475569",
+      fontSize: 16,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "\u2605")))),
+  // ── WEIGHT FIELDS ──
+  reminderModal === "weight" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginBottom: 16
+    }
+  }, [{
+    v: rmWeight,
+    set: setRmWeight,
+    ph: "Greutate kg (ex: 107.5)"
+  }, {
+    v: rmFat,
+    set: setRmFat,
+    ph: "Grasime % (BF)"
+  }, {
+    v: rmMuscle,
+    set: setRmMuscle,
+    ph: "Muschi kg (optional)"
+  }].map((f, i) => /*#__PURE__*/React.createElement("input", {
+    key: i,
+    type: "text",
+    inputMode: "decimal",
+    autoComplete: "off",
+    autoCorrect: "off",
+    value: f.v,
+    placeholder: f.ph,
+    onChange: e => f.set(e.target.value.replace(/,/g, ".").replace(/[^0-9.]/g, "")),
+    style: {
+      width: "100%",
+      padding: "10px",
+      background: "rgba(0,0,0,.35)",
+      border: "1px solid rgba(34,197,94,.3)",
+      borderRadius: 6,
+      color: "#e2e8f0",
+      fontSize: 13,
+      fontFamily: "inherit",
+      outline: "none",
+      boxSizing: "border-box",
+      marginBottom: 8,
+      textAlign: "center"
+    }
+  }))),
+  // ── BUTTONS ──
+  /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      setReminderModal(null);
+      setRmSleepH("");
+      setRmSleepR(0);
+      setRmWeight("");
+      setRmFat("");
+      setRmMuscle("");
+    },
+    style: {
+      flex: 1,
+      padding: "11px",
+      background: "rgba(255,255,255,.05)",
+      border: "1px solid rgba(255,255,255,.1)",
+      borderRadius: 7,
+      color: "#94a3b8",
+      fontSize: 12,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "Amana"), /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      if (reminderModal === "sleep") {
+        if (!rmSleepH || rmSleepR === 0) {
+          setNotif("Introdu ore + rating, sau apasa Amana");
+          return;
+        }
+        logSleep(rmSleepH, rmSleepR);
+      } else {
+        if (!rmWeight) {
+          setNotif("Introdu cel putin greutatea, sau apasa Amana");
+          return;
+        }
+        update({
+          weightLog: [...weightLog, {
+            date: new Date().toLocaleDateString(),
+            weight: parseFloat(rmWeight),
+            fat: rmFat ? parseFloat(rmFat) : null,
+            muscle: rmMuscle ? parseFloat(rmMuscle) : null
+          }]
+        });
+        setNotif("\uD83D\uDCCA Greutate logata!");
+      }
+      setReminderModal(null);
+      setRmSleepH("");
+      setRmSleepR(0);
+      setRmWeight("");
+      setRmFat("");
+      setRmMuscle("");
+    },
+    style: {
+      flex: 2,
+      padding: "11px",
+      background: reminderModal === "sleep" ? "linear-gradient(135deg,rgba(99,102,241,.35),rgba(168,85,247,.2))" : "linear-gradient(135deg,rgba(34,197,94,.35),rgba(59,130,246,.2))",
+      border: `1px solid ${reminderModal === "sleep" ? "rgba(99,102,241,.5)" : "rgba(34,197,94,.5)"}`,
+      borderRadius: 7,
+      color: reminderModal === "sleep" ? "#c7d2fe" : "#86efac",
+      fontSize: 12,
+      fontWeight: 700,
+      cursor: "pointer",
+      fontFamily: "inherit"
+    }
+  }, "Salveaza")))), questPopup && /*#__PURE__*/React.createElement(QuestPopup, {
     quote: questPopup.quote,
     xpGain: questPopup.xpGain,
     multiplier: questPopup.multiplier,
@@ -3708,9 +4241,9 @@ function App() {
   }, "Auto-reset")), (() => {
     const todayPPL = ACTIVE_SPLIT[new Date().getDay()];
     const missedQ = PENALIZABLE_DAILY.filter(q => !done.includes(q.id)).reduce((s, q) => s + q.xp, 0);
-    const missedEx = todayPPL && todayPPL.type !== "REST" ? todayPPL.exercises.filter(ex => !doneEx.includes(ex.name)).length * 10 : 0;
-    const missedLesson = dailyLessonDone ? 0 : 45;
-    const totalRisk = missedQ + missedEx + missedLesson;
+    const missedEx = todayPPL && todayPPL.type !== "REST" ? todayPPL.exercises.filter(ex => !ex.finisher && !doneEx.includes(ex.name)).length * 10 : 0;
+    const missedLesson = 0;
+    const totalRisk = missedQ + missedEx;
     if (totalRisk > 0) return /*#__PURE__*/React.createElement("div", {
       style: {
         marginTop: 6,
@@ -4188,7 +4721,89 @@ function App() {
       color: "#475569",
       marginBottom: 12
     }
-  }, vPPL.day), vPPL.type === "REST" ? /*#__PURE__*/React.createElement("div", {
+  }, vPPL.day), (() => {
+    const wk = warmupKeyFor(vPPL.type);
+    const wd = wk && WARMUP_DATA[wk];
+    if (!wd) return null;
+    return /*#__PURE__*/React.createElement("div", {
+      style: {
+        marginBottom: 12,
+        border: "1px solid rgba(251,191,36,.25)",
+        borderRadius: 8,
+        overflow: "hidden"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      onClick: () => setShowWarmup(v => !v),
+      style: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "9px 12px",
+        background: "rgba(251,191,36,.08)",
+        cursor: "pointer"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 11,
+        color: "#fbbf24",
+        letterSpacing: 1,
+        fontWeight: 700
+      }
+    }, "\uD83D\uDD25 WARM-UP \u2014 5 min"), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 12,
+        color: "#fbbf24"
+      }
+    }, showWarmup ? "\u25BE" : "\u25B8")), showWarmup && /*#__PURE__*/React.createElement("div", {
+      style: {
+        padding: "6px 10px 10px"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 8,
+        color: "#78716c",
+        marginBottom: 8,
+        lineHeight: 1.5
+      }
+    }, "Fa asta INAINTE de antrenament. Pregateste articulatiile si muschii zilei."), wd.warmup.map((m, mi) => /*#__PURE__*/React.createElement("div", {
+      key: mi,
+      style: {
+        display: "flex",
+        gap: 10,
+        alignItems: "center",
+        padding: "6px 0",
+        borderBottom: mi < wd.warmup.length - 1 ? "1px solid rgba(255,255,255,.04)" : "none"
+      }
+    }, StretchFig(m.pose, "#fbbf24"), /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: 1
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "baseline"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 11,
+        color: "#e2e8f0",
+        fontWeight: 700
+      }
+    }, m.name), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 8,
+        color: "#fbbf24"
+      }
+    }, m.time)), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 9,
+        color: "#94a3b8",
+        marginTop: 2,
+        lineHeight: 1.4
+      }
+    }, m.text))))));
+  })(), vPPL.type === "REST" ? /*#__PURE__*/React.createElement("div", {
     style: {
       textAlign: "center",
       padding: "16px 0",
@@ -4242,7 +4857,19 @@ function App() {
         color: dn ? "#64748b" : "#e2e8f0",
         textDecoration: dn ? "line-through" : "none"
       }
-    }, ex.name), /*#__PURE__*/React.createElement("div", {
+    }, ex.name, ex.finisher && /*#__PURE__*/React.createElement("span", {
+      style: {
+        marginLeft: 6,
+        fontSize: 7,
+        color: "#fbbf24",
+        background: "rgba(251,191,36,.12)",
+        border: "1px solid rgba(251,191,36,.3)",
+        borderRadius: 3,
+        padding: "1px 4px",
+        letterSpacing: 0.5,
+        verticalAlign: "middle"
+      }
+    }, "FINISHER")), /*#__PURE__*/React.createElement("div", {
       style: {
         fontSize: 9,
         color: "#334155"
@@ -4523,16 +5150,22 @@ function App() {
               fontWeight: 700
             }
           }, s.isFail ? "🔥" : si + 1), /*#__PURE__*/React.createElement("input", {
-            type: "number",
+            type: "text",
             inputMode: "decimal",
+            autoComplete: "off",
+            autoCorrect: "off",
             value: s.kg,
             placeholder: "kg",
             disabled: s.logged,
             onChange: e => {
+              // Allow digits, one comma/dot; normalize comma->dot; keep partial input
+              let v = e.target.value.replace(/,/g, ".").replace(/[^0-9.]/g, "");
+              const parts = v.split(".");
+              if (parts.length > 2) v = parts[0] + "." + parts.slice(1).join("");
               const n = [...sets];
               n[si] = {
                 ...n[si],
-                kg: e.target.value
+                kg: v
               };
               setSets(n);
             },
@@ -4550,16 +5183,19 @@ function App() {
               boxSizing: "border-box"
             }
           }), /*#__PURE__*/React.createElement("input", {
-            type: "number",
+            type: "text",
             inputMode: "numeric",
+            autoComplete: "off",
+            autoCorrect: "off",
             value: s.reps,
             placeholder: "reps",
             disabled: s.logged,
             onChange: e => {
+              const v = e.target.value.replace(/[^0-9]/g, "");
               const n = [...sets];
               n[si] = {
                 ...n[si],
-                reps: e.target.value
+                reps: v
               };
               setSets(n);
             },
@@ -4670,7 +5306,7 @@ function App() {
           }
         }, "\u2713 SAVE TO LOG (+10 XP)"));
       };
-      return /*#__PURE__*/React.createElement(SetLogger, null);
+      return SetLogger();
     })(), /*#__PURE__*/React.createElement("button", {
       onClick: e => {
         e.stopPropagation();
@@ -4711,7 +5347,89 @@ function App() {
       color: "#64748b",
       textAlign: "center"
     }
-  }, "\uD83C\uDFC3 Cardio: doar ce e in taskuri \xB7 fara ore extra (protejezi masa musculara)")), /*#__PURE__*/React.createElement("div", {
+  }, "\uD83C\uDFC3 Cardio: doar ce e in taskuri \xB7 fara ore extra (protejezi masa musculara)"), (() => {
+    const wk = warmupKeyFor(vPPL.type);
+    const wd = wk && WARMUP_DATA[wk];
+    if (!wd) return null;
+    return /*#__PURE__*/React.createElement("div", {
+      style: {
+        marginTop: 10,
+        border: "1px solid rgba(96,165,250,.25)",
+        borderRadius: 8,
+        overflow: "hidden"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      onClick: () => setShowCooldown(v => !v),
+      style: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "9px 12px",
+        background: "rgba(96,165,250,.08)",
+        cursor: "pointer"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 11,
+        color: "#60a5fa",
+        letterSpacing: 1,
+        fontWeight: 700
+      }
+    }, "\uD83E\uDDD8 COOL-DOWN / STRETCH \u2014 5 min"), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 12,
+        color: "#60a5fa"
+      }
+    }, showCooldown ? "\u25BE" : "\u25B8")), showCooldown && /*#__PURE__*/React.createElement("div", {
+      style: {
+        padding: "6px 10px 10px"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 8,
+        color: "#64748b",
+        marginBottom: 8,
+        lineHeight: 1.5
+      }
+    }, "Fa asta DUPA antrenament. Intinde muschii lucrati, ajuta recuperarea si mobilitatea."), wd.cooldown.map((m, mi) => /*#__PURE__*/React.createElement("div", {
+      key: mi,
+      style: {
+        display: "flex",
+        gap: 10,
+        alignItems: "center",
+        padding: "6px 0",
+        borderBottom: mi < wd.cooldown.length - 1 ? "1px solid rgba(255,255,255,.04)" : "none"
+      }
+    }, StretchFig(m.pose, "#60a5fa"), /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: 1
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "baseline"
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 11,
+        color: "#e2e8f0",
+        fontWeight: 700
+      }
+    }, m.name), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 8,
+        color: "#60a5fa"
+      }
+    }, m.time)), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 9,
+        color: "#94a3b8",
+        marginTop: 2,
+        lineHeight: 1.4
+      }
+    }, m.text))))));
+  })()), /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: 14
     }
@@ -6043,228 +6761,7 @@ function App() {
         textAlign: "center"
       }
     }, "Schedule: Mon=Investing \xB7 Tue=AI \xB7 Wed=Mindset \xB7 Thu=Training \xB7 Fri=Sales \xB7 Sat=Trends \xB7 Sun=Business"));
-  })(), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 9,
-      color: "#334155",
-      letterSpacing: 2,
-      marginBottom: 8,
-      textTransform: "uppercase"
-    }
-  }, "\u25B8 CURRENT BOOK"), !bookTitle ? /*#__PURE__*/React.createElement("div", {
-    style: {
-      background: "rgba(255,255,255,.02)",
-      border: "1px solid rgba(255,255,255,.06)",
-      borderRadius: 8,
-      padding: 14
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 10,
-      color: "#475569",
-      marginBottom: 8
-    }
-  }, "Set your current book to track reading progress:"), /*#__PURE__*/React.createElement("input", {
-    type: "text",
-    placeholder: "Book title...",
-    id: "bookTitleInput",
-    style: {
-      ...IS,
-      marginBottom: 6
-    }
-  }), /*#__PURE__*/React.createElement("input", {
-    type: "number",
-    placeholder: "Total pages...",
-    id: "bookPagesInput",
-    style: {
-      ...IS,
-      marginBottom: 8
-    }
-  }), /*#__PURE__*/React.createElement("button", {
-    onClick: () => {
-      const t = document.getElementById("bookTitleInput").value;
-      const p = parseInt(document.getElementById("bookPagesInput").value);
-      if (t && p > 0) {
-        update({
-          bookTitle: t,
-          bookPages: p,
-          bookRead: 0
-        });
-        setNotif(`📖 Now reading: ${t}`);
-      }
-    },
-    style: {
-      width: "100%",
-      padding: "9px",
-      background: "linear-gradient(135deg,rgba(59,130,246,.2),rgba(59,130,246,.1))",
-      border: "1px solid rgba(59,130,246,.3)",
-      borderRadius: 6,
-      color: "#93c5fd",
-      fontSize: 11,
-      cursor: "pointer",
-      letterSpacing: 1
-    }
-  }, "\uD83D\uDCD6 SET BOOK")) : /*#__PURE__*/React.createElement("div", {
-    style: {
-      background: "linear-gradient(135deg,rgba(59,130,246,.06),rgba(168,85,247,.04))",
-      border: "1px solid rgba(59,130,246,.2)",
-      borderRadius: 8,
-      padding: 14
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "flex-start",
-      marginBottom: 8
-    }
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 13,
-      color: "#e2e8f0",
-      fontWeight: 600
-    }
-  }, bookTitle), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 10,
-      color: "#475569",
-      marginTop: 2
-    }
-  }, bookRead, " / ", bookPages, " pages")), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 9,
-      color: "#3b82f6"
-    }
-  }, bookPages > 0 ? Math.round(bookRead / bookPages * 100) : 0, "%")), /*#__PURE__*/React.createElement("div", {
-    style: {
-      height: 8,
-      background: "rgba(255,255,255,.05)",
-      borderRadius: 4,
-      overflow: "hidden",
-      marginBottom: 10
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      height: "100%",
-      width: `${bookPages > 0 ? bookRead / bookPages * 100 : 0}%`,
-      background: "linear-gradient(90deg,#3b82f6,#a78bfa)",
-      borderRadius: 4,
-      transition: "width .6s ease"
-    }
-  })), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 9,
-      color: "#475569",
-      marginBottom: 8,
-      textAlign: "center"
-    }
-  }, bookRead >= bookPages ? "✦ BOOK COMPLETE! Set a new one below." : `~${Math.max(0, Math.ceil((bookPages - bookRead) / 30))} days left at 30 pages/day`), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: "flex",
-      gap: 4,
-      marginBottom: 8
-    }
-  }, /*#__PURE__*/React.createElement("button", {
-    onClick: () => {
-      const nr = Math.min(bookRead + 30, bookPages);
-      update({
-        bookRead: nr,
-        bookLog: [...bookLog, {
-          title: bookTitle,
-          pages: 30,
-          date: new Date().toLocaleDateString()
-        }]
-      });
-      if (nr >= bookPages) setNotif("📖 BOOK COMPLETE!");else setNotif(`📖 +30 pages · ${bookPages - nr} remaining`);
-    },
-    style: {
-      flex: 1,
-      padding: "9px",
-      background: "linear-gradient(135deg,rgba(34,197,94,.2),rgba(34,197,94,.1))",
-      border: "1px solid rgba(34,197,94,.3)",
-      borderRadius: 6,
-      color: "#86efac",
-      fontSize: 11,
-      cursor: "pointer",
-      letterSpacing: 1
-    }
-  }, "+30 PAGES"), /*#__PURE__*/React.createElement("button", {
-    onClick: () => {
-      const custom = prompt("How many pages did you read?");
-      if (custom && parseInt(custom) > 0) {
-        const nr = Math.min(bookRead + parseInt(custom), bookPages);
-        update({
-          bookRead: nr,
-          bookLog: [...bookLog, {
-            title: bookTitle,
-            pages: parseInt(custom),
-            date: new Date().toLocaleDateString()
-          }]
-        });
-        setNotif(`📖 +${custom} pages logged`);
-      }
-    },
-    style: {
-      flex: 1,
-      padding: "9px",
-      background: "rgba(255,255,255,.04)",
-      border: "1px solid rgba(255,255,255,.08)",
-      borderRadius: 6,
-      color: "#94a3b8",
-      fontSize: 11,
-      cursor: "pointer"
-    }
-  }, "CUSTOM")), /*#__PURE__*/React.createElement("button", {
-    onClick: () => {
-      update({
-        bookTitle: "",
-        bookPages: 0,
-        bookRead: 0
-      });
-      setNotif("📖 Book cleared. Set a new one!");
-    },
-    style: {
-      width: "100%",
-      padding: "7px",
-      background: "rgba(239,68,68,.06)",
-      border: "1px solid rgba(239,68,68,.15)",
-      borderRadius: 5,
-      color: "#f87171",
-      fontSize: 9,
-      cursor: "pointer"
-    }
-  }, "FINISH / CHANGE BOOK"), bookLog.length > 0 && /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 12
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 9,
-      color: "#334155",
-      letterSpacing: 2,
-      marginBottom: 6
-    }
-  }, "\u25B8 READING LOG"), bookLog.slice().reverse().slice(0, 10).map((b, i) => /*#__PURE__*/React.createElement("div", {
-    key: i,
-    style: {
-      display: "flex",
-      justifyContent: "space-between",
-      padding: "6px 10px",
-      marginBottom: 2,
-      background: "rgba(255,255,255,.02)",
-      border: "1px solid rgba(255,255,255,.03)",
-      borderRadius: 4,
-      fontSize: 10
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      color: "#94a3b8"
-    }
-  }, b.date), /*#__PURE__*/React.createElement("span", {
-    style: {
-      color: "#a78bfa"
-    }
-  }, b.pages, " pages")))))), tab === "social" && false, tab === "health" && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+  })(), null), tab === "social" && false, tab === "health" && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
     style: {
       background: "linear-gradient(135deg,rgba(34,197,94,.08),rgba(59,130,246,.05))",
       border: "1px solid rgba(34,197,94,.2)",
@@ -6279,7 +6776,7 @@ function App() {
       letterSpacing: 1,
       marginBottom: 6
     }
-  }, "\u2696\uFE0F WEIGHT GOAL"), /*#__PURE__*/React.createElement("div", {
+  }, "\u2696\uFE0F " + (phase2 ? "BODY FAT GOAL" : "WEIGHT GOAL")), /*#__PURE__*/React.createElement("div", {
     style: {
       display: "flex",
       justifyContent: "space-between",
@@ -6290,7 +6787,7 @@ function App() {
     style: {
       color: "#94a3b8"
     }
-  }, latestW.weight, "kg"), /*#__PURE__*/React.createElement("span", {
+  }, phase2 ? (latestBf !== null ? latestBf + "% BF" : latestW.weight + "kg") : latestW.weight + "kg"), /*#__PURE__*/React.createElement("span", {
     style: {
       color: "#475569"
     }
@@ -6298,7 +6795,7 @@ function App() {
     style: {
       color: "#22c55e"
     }
-  }, goalW, "kg goal")), /*#__PURE__*/React.createElement("div", {
+  }, phase2 ? bfGoal + "% BF goal" : goalW + "kg goal")), /*#__PURE__*/React.createElement("div", {
     style: {
       height: 8,
       background: "rgba(255,255,255,.05)",
@@ -6320,7 +6817,7 @@ function App() {
       color: "#475569",
       textAlign: "center"
     }
-  }, progress.toFixed(0), "% to goal \xB7 ", (latestW.weight - goalW).toFixed(1), "kg remaining"), (() => {
+  }, progress.toFixed(0), "% to goal \xB7 ", phase2 ? (latestBf !== null ? (latestBf - bfGoal).toFixed(1) + "% BF remaining" : "loghează BF") : (latestW.weight - goalW).toFixed(1) + "kg remaining"), (() => {
     const wl = (weightLog || []).filter(w => w.date && w.date !== "Start" && typeof w.weight === "number");
     if (wl.length < 2) return null;
     // 7-day moving average of weight + BF
